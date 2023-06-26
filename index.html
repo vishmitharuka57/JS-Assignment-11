@@ -309,7 +309,7 @@
                 <div class="row">
                     <div class="col">
                         <label class="form-label">Item_Code</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" id="cmbItemIDs">
                             <option selected>I001</option>
                             <option value="1">I002</option>
                             <option value="2">I003</option>
@@ -319,20 +319,20 @@
                 </div>
                 <div >
                     <label class="form-label"> Item_Name</label>
-                    <input type="text" class="form-control" id="itemName">
+                    <input type="text" class="form-control" id="txtPItemName">
 
                     <label class="form-label"> Unit_Price</label>
-                    <input type="text" class="form-control" id="unit_Price">
+                    <input type="text" class="form-control" id="txtPPrice">
 
                     <label class="form-label">Qty_On_Hand</label>
-                    <input type="text" class="form-control" id="qty_on_Hand">
+                    <input type="text" class="form-control" id="txtPItemQty">
 
                     <label class="form-label">Amount</label>
-                    <input type="text" class="form-control" id="amount">
+                    <input type="text" class="form-control" id="txtorderQty">
 
                 </div>
                 <div class="col m-2">
-                    <button type="button" class="btn btn-danger">Place_Order</button>
+                    <button type="button" class="btn btn-danger" id="btn-addtoCart">Place_Order</button>
                 </div>
 
             </form>
@@ -340,22 +340,23 @@
         <div class="col container-fluid bg-light border border-success border-2 m-3">
 
             <div class="fs-2 fw-bold mt-5 m-2">
-                Total : 0 LKR
+                <h2 id="total">Total : <span>0</span> </h2>
+                <h2 id="subtotal">SubTotal : <span>0</span></h2>
                 <div class="row mt-4">
                     <div class="col">
                         <label class="form-label">Cash</label>
-                        <input type="text" class="form-control" id="cash">
+                        <input type="text" class="form-control" id="txtCash">
                     </div>
                     <div class="col">
                         <label class="form-label">Discount</label>
-                        <input type="text" class="form-control" id="discount">
+                        <input type="text" class="form-control" id="txtDiscount">
                     </div>
 
                     <label class="form-label">Balance</label>
-                    <input type="text" class="form-control" id="balance">
+                    <input type="text" class="form-control" id="txtBalance">
 
                     <div class="col m-2">
-                        <button type="button" class="btn btn-primary">Purchase</button>
+                        <button type="button" class="btn btn-primary" id="btn-purchase-order">Purchase</button>
                     </div>
 
                 </div>
@@ -379,7 +380,7 @@
                     <th scope="col">Total</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="addToCartTable">
                 <tr>
                     <th scope="row">1</th>
                     <td></td>
@@ -422,6 +423,19 @@
 
         </div>
 </section>
+<script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="db/DB.js"></script>
+<script src="controller/CustomerController.js"></script>
+<script src="controller/PlaceOrderController.js"></script>
+<script src="model/CustomerDTO.js"></script>
+<script src="controller/ItemController.js"></script>
+<script src="controller/OrderDetailController.js"></script>
+<script src="model/ItemDTO.js"></script>
+<script src="model/OrderDTO.js"></script>
+<script src="model/OrderDetailDTO.js"></script>
+<script src="model/CartDTO.js"></script>
 
 <script>
     document.getElementById("customerPG").style.display = "none";
